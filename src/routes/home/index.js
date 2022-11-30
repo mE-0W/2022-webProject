@@ -5,7 +5,11 @@ const router = express.Router();
 
 const ctrl = require("./home.ctrl"); // controller file을 불러옴
 
-router.get("/", ctrl.hello); // hello 객체에 접근
+router.get("/", ctrl.home); // hello 객체에 접근
 router.get("/login", ctrl.login);
+// router.get("/", ctrl.output.home); // hello 객체에 접근
+// router.get("/login", ctrl.output.login);
+// router.post("/login", ctrl.process.login);
+
 
 module.exports = router; // 객체를 내보내주기 위한 명령어
