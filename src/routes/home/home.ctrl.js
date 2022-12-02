@@ -1,5 +1,7 @@
 "use strict";
 
+const UserStorage = require("../../models/UserStorage");
+
 const output ={
   home: (req, res) => {
     res.render("home/index");
@@ -9,30 +11,27 @@ const output ={
   },
 };
 
-const users = {
-  id: ["nahee", "yiseo", "sua"],
-  passwd: ["1234", "1234", "1234"],
-};
-
 const process ={
   login: (req, res) => {
-    const id = req.body.id,
-    passwd = req.body.passwd;
+    const id = req.body.id;
+    const passwd = req.body.passwd;
 
+    /* UserStorage에 있는 데이터를 가져옴 */
+    const users = UserStorage.getUsers("id", "passwd");
+    const response = {};
+    /* 로그인 검증 (사용자 검증) 로직 */
     if (users.id.includes(id)) {
       const idx = users.id.indexOf(id);
       if (users.passwd[idx] === passwd){
-        return res.json({
-          success: true,
-        });
+        response.success = true;
+        return res.json(response);
       }
     }
 
-    return res.json({
-      success: false,
-      msg: "로그인에 실패하셨습니다.",
-    });
-  }
+    response.success = false;
+    response.msg = "로그인에 실패하셨습니다."
+    return res.json(response);
+  },
 }
 
 
