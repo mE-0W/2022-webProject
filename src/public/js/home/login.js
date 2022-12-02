@@ -4,8 +4,8 @@
 
 // DOM : 문서 객체 모델
 const id = document.querySelector("#id");
-const psword = document.querySelector("#passwd");
-const loginBtn = document.querySelector("button");
+const passwd = document.querySelector("#passwd");
+const loginBtn = document.querySelector("#button");
 
 loginBtn.addEventListener("click", login);
 

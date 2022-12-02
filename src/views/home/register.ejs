@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/css/home/login.css">
-    <script src="/js/home/login.js" defer></script>
+    <script src="/js/home/register.js" defer></script>
     <title>Login-Lecture</title>
 </head>
 
@@ -21,10 +21,12 @@
             <p class="message">Already registered? <a href="#">Sign In</a></p>
           </form>-->
           <form class="login-form">
+            <input id="name" type="text" placeholder="이름"/>
             <input id="id" type="text" placeholder="아이디"/>
             <input id="passwd" type="password" placeholder="비밀번호"/>
-            <p id="button">login</p>
-            <p class="message">Not registered? <a href="/register">Create an account</a></p>
+            <input id="confirm-passwd" type="password" placeholder="비밀번호 확인"/>
+            <p id="button">SIGN UP</p>
+            <p class="message">Already registered? <a href="/login">login</a></p>
           </form>
         </div>
       </div>

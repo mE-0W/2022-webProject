@@ -17,6 +17,26 @@ class UserStorage {
         }, {});
         return newUsers;
     }
+
+    static getUsersInfo(id) {
+        const users = this.#users;
+        const idx = users.id.indexOf(id);
+        const userKeys = Object.keys(users); // user의 Key 값을 리스트로 만듦
+        const userInfo = userKeys.reduce((newUser, info) => {
+            newUser[info] = users[info][idx];
+            return newUser;
+        }, {});
+
+        return userInfo;
+    }
+
+    static save(userInfo) {
+        const users = this.#users;
+        users.name.push(userInfo.name);
+        users.id.push(userInfo.id);
+        users.passwd.push(userInfo.passwd);
+        console.log(users);
+    }
 }
 
 
